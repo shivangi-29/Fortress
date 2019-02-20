@@ -1,23 +1,3 @@
-
-Conversation opened. 1 read message.
-
-Skip to content
-Using Gmail with screen readers
-14 of about 56
-Serial Communication
-Shivangi Srivastava <myspace.shivangi@gmail.com>
-	
-AttachmentsFri, 5 Oct 2018, 20:21
-	
-to jaydeep
-Here is the arduino code and the code of fortress that i refered to for serial communication.
-
-Regards
-2 Attachments
-	
-	
-	
-
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/core/core.hpp"
@@ -187,8 +167,6 @@ void bounding_rect()
       // cout<<c1<<endl;
        //cout<< c2<<endl;
 	 temp = drawing(boundRect[i]);
-	//imshow("temp", img3);
-	//waitKey(3000);
         }
       }
     scaling_factor(temp);
@@ -199,22 +177,12 @@ void bounding_rect()
 
 
 void scaling_factor(Mat temp2)
-   {
-    //sc=(area/areac)^(1/2);
-    //cout<<"sc"<<endl;
-    //if(sc>1)
+{
 imshow("win",temp);
 waitKey(0);
     resize(temp2,temp1,Size(),0,0);
-  // else 
-	//    resize(temp1,temp,Size(),sc,sc,CV_INTER_AREA);
 MatchingMethod();   
 }
-
-
-
-
-
 
 void MatchingMethod()
 {
@@ -239,8 +207,6 @@ Point matchLoc;
 
   minMaxLoc( result, &minVal, &maxVal, &minLoc, &maxLoc, Mat() );
 
-  
-  /// Show me what you got
   rectangle( img_display, matchLoc, Point( matchLoc.x + temp1.cols , matchLoc.y + temp1.rows ), Scalar::all(0), 2, 8, 0 );
   rectangle( result, matchLoc, Point( matchLoc.x + temp1.cols , matchLoc.y + temp1.rows ), Scalar::all(0), 2, 8, 0 );
  cenx=(int)(2*matchLoc.x+temp1.cols)/2;
@@ -249,9 +215,6 @@ Point matchLoc;
  y[coun]=ceny;
 coun++;
 }
-
-
-
 
 void arena()
 {
@@ -304,23 +267,6 @@ Mat element=getStructuringElement(MORPH_RECT,Size(2*dilation_size+1,2*dilation_s
 	waitKey(10);
 }
 
-
-
-
-
-
-
-
-/*
-
-////////rgb values for the marker////////////
-int lrf=113,hrf=159,lgf=210,hgf=255,lbf=150,hbf=255;
-int  lrb=201,hrb=223,lgb=134,hgb=194,lbb=0,hbb=255;
-/////////////////////////////
-Point head_point, end_point, tail_point;
-
-///define the centre of the two marker
-int cfx=0,cfy=0,cbx=0,cby=0,cx=0,cy=0;
 void bot_location()
 {
 int r,b,g;
@@ -379,11 +325,7 @@ Mat copy1=frame1.clone();
  
 }
 
-/////define the points
-
-
-
-/*void get_path() {
+void get_path() {
     line(path_img, , end_point, Scalar(255, 255, 255), 2, 8);
 }
 
@@ -419,11 +361,6 @@ else if (counter==4)
  else cout<<"error\n"<<endl;
 }
 
-
-
-
-
-
 void move_bot() {
    // printf("End Point: (%d, %d)\n", end_point.x, end_point.y);
       if (state == START_POINT){
@@ -444,12 +381,7 @@ void move_bot() {
             d1 = dist(head_point, end_point);
             d2 = dist(tail_point, end_point);
             d = d1 >= d2 ? d1 : d2;
-            angle = angle_between(head_point, end_point, tail_point);
-            /*printf("Head Point: "<< hcx<<hcy;
-            printf("Tail Point: (%d, %d)\n", tail_point.x, tail_point.y);
-            printf("End Point: (%d, %d)\n", end_point.x, end_point.y);
-            printf("Angle: %f\n", angle);
-            printf("Distance: %f\n", d);
+            angle = angle_between(head_point, end_point, tail_point)
             if (angle <= 10 && angle >= -10) {
                 if (previous != 'W') {
                     previous = 'W';
@@ -494,12 +426,6 @@ void move_bot() {
         move_bot();
     }
 }
-*/
-
-
-
-
-
 
 int main(int argc, const char **argv)
 {
@@ -520,10 +446,6 @@ vid.read(frame);
 arena();
 /////////////////////////////////
 colourdetector(180,255,30,200,30,225);
-//colourdetector(230,255,0,25,0,25);
-//colourdetector(0,25,230,255,0,25);
-//colourdetector(0,25,0,25,230,255);
-//colourdetector(230,255,0,25,230,255);
 while(1)  
  {
 	vid.read(frame);
@@ -535,6 +457,3 @@ while(1)
    
   return 0;
 }
-
-ip2.cpp
-Displaying ip2.cpp.
